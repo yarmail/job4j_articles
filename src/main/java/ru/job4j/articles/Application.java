@@ -10,6 +10,23 @@ import ru.job4j.articles.store.WordStore;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * Задание
+ * Запустить программу и убедиться, что она падает на ошибке OutOfMemoryException.
+ * Исправить код программы таким образом, чтобы этой ошибки не возникало.
+ * --------------
+ * ВНИМАНИЕ
+ * НЕ СОХРАНЯТЬ И НЕ КОМИТИТЬ ФАЙЛЫ DB - DIR
+ * articles.lck
+ * articles.log
+ * articles.properties
+ * ------------
+ * Наблюдения и соображения.
+ * 1. Ошибка происходит на генерации 198 тыс статей.
+ * 2. Если TARGET_COUNT маленький (например 5000) - то заданние проходит
+ * 3. В сервисе зачем-то статьи заносятся в список а потом в файл - вероятно это лишнее
+ * Пробуем внести изменения в файл SimpleArticleService
+ */
 public class Application {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Application.class.getSimpleName());
@@ -36,5 +53,4 @@ public class Application {
         }
         return properties;
     }
-
 }
