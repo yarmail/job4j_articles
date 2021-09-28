@@ -6,7 +6,6 @@ import ru.job4j.articles.service.SimpleArticleService;
 import ru.job4j.articles.service.generator.RandomArticleGenerator;
 import ru.job4j.articles.store.ArticleStore;
 import ru.job4j.articles.store.WordStore;
-
 import java.io.InputStream;
 import java.util.Properties;
 

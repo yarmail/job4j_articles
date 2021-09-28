@@ -22,9 +22,9 @@ public class SimpleArticleService implements ArticleService {
     @Override
     public void generate(Store<Word> wordStore, int count, Store<Article> articleStore) {
         LOGGER.info("Генеранация статей в количестве {}", count);
-        var words = wordStore.findAll(); // вероятно загрузка всех слов для создания текста
+        var words = wordStore.findAll();
             for (int i = 0; i < count; i++) {
-                articleStore.save(articleGenerator.generate(words)); // сохранение сгенерированного текста
+                articleStore.save(articleGenerator.generate(words));
             LOGGER.info("Сгенерирована статья № {}", i);
         }
     }
