@@ -17,7 +17,16 @@ public class SimpleArticleService implements ArticleService {
     }
 
     /**
-     * Вносим изменения сюда, внизу исходный вариант
+     *
+     * Исходный вариант
+     *     public void generate(Store<Word> wordStore, int count, Store<Article> articleStore) {
+     *         LOGGER.info("Геренация статей в количестве {}", count);
+     *         var words = wordStore.findAll();
+     *         var articles = IntStream.iterate(0, i -> i < count, i -> i + 1)
+     *                 .peek(i -> LOGGER.info("Сгенерирована статья № {}", i))
+     *                 .mapToObj((x) -> articleGenerator.generate(words))
+     *                 .collect(Collectors.toList()); // возможно это лишнее
+     *         articles.forEach(articleStore::save);
      */
     @Override
     public void generate(Store<Word> wordStore, int count, Store<Article> articleStore) {
@@ -29,16 +38,3 @@ public class SimpleArticleService implements ArticleService {
         }
     }
 }
-
-/* Исходный вариант
-    @Override
-    public void generate(Store<Word> wordStore, int count, Store<Article> articleStore) {
-        LOGGER.info("Геренация статей в количестве {}", count);
-        var words = wordStore.findAll();
-        var articles = IntStream.iterate(0, i -> i < count, i -> i + 1)
-                .peek(i -> LOGGER.info("Сгенерирована статья № {}", i))
-                .mapToObj((x) -> articleGenerator.generate(words))
-                .collect(Collectors.toList()); // возможно это лишнее
-        articles.forEach(articleStore::save);
-    }
- */
